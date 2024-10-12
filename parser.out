@@ -1,0 +1,2583 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statements
+Rule 2     statements -> statement
+Rule 3     statements -> statements statement
+Rule 4     statement -> include_statement
+Rule 5     statement -> declaration
+Rule 6     statement -> assignment
+Rule 7     statement -> cout_statement
+Rule 8     statement -> cin_statement
+Rule 9     statement -> if_statement
+Rule 10    statement -> while_statement
+Rule 11    statement -> for_statement
+Rule 12    statement -> function_definition
+Rule 13    statement -> function_call
+Rule 14    statement -> return_statement
+Rule 15    statement -> expression SEMICOLON
+Rule 16    include_statement -> INCLUDE LESS IOSTREAM GREATER
+Rule 17    declaration -> type IDENTIFIER SEMICOLON
+Rule 18    declaration -> type IDENTIFIER EQUALS expression SEMICOLON
+Rule 19    type -> INT
+Rule 20    type -> FLOAT
+Rule 21    type -> STRING
+Rule 22    type -> VOID
+Rule 23    assignment -> IDENTIFIER EQUALS expression SEMICOLON
+Rule 24    cout_statement -> COUT LEFTSHIFT expression SEMICOLON
+Rule 25    cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON
+Rule 26    if_statement -> IF LPAREN expression RPAREN compound_statement
+Rule 27    if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement
+Rule 28    while_statement -> WHILE LPAREN expression RPAREN compound_statement
+Rule 29    for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement
+Rule 30    compound_statement -> LBRACE statements RBRACE
+Rule 31    function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement
+Rule 32    parameters -> type IDENTIFIER
+Rule 33    parameters -> type IDENTIFIER COMMA parameters
+Rule 34    parameters -> <empty>
+Rule 35    function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON
+Rule 36    arguments -> expression
+Rule 37    arguments -> expression COMMA arguments
+Rule 38    arguments -> <empty>
+Rule 39    return_statement -> RETURN expression SEMICOLON
+Rule 40    expression -> IDENTIFIER
+Rule 41    expression -> NUMBER
+Rule 42    expression -> STRING_LITERAL
+Rule 43    expression -> expression PLUS expression
+Rule 44    expression -> expression MINUS expression
+Rule 45    expression -> expression TIMES expression
+Rule 46    expression -> expression DIVIDE expression
+Rule 47    expression -> expression LESS expression
+Rule 48    expression -> expression GREATER expression
+Rule 49    expression -> expression LESSEQUAL expression
+Rule 50    expression -> expression GREATEREQUAL expression
+Rule 51    expression -> LPAREN expression RPAREN
+
+Terminals, with rules where they appear
+
+CIN                  : 25
+COMMA                : 33 37
+COUT                 : 24
+DIVIDE               : 46
+ELSE                 : 27
+EQUALS               : 18 23
+FLOAT                : 20
+FOR                  : 29
+GREATER              : 16 48
+GREATEREQUAL         : 50
+IDENTIFIER           : 17 18 23 25 31 32 33 35 40
+IF                   : 26 27
+INCLUDE              : 16
+INT                  : 19
+IOSTREAM             : 16
+LBRACE               : 30
+LEFTSHIFT            : 24
+LESS                 : 16 47
+LESSEQUAL            : 49
+LPAREN               : 26 27 28 29 31 35 51
+MINUS                : 44
+NUMBER               : 41
+PLUS                 : 43
+RBRACE               : 30
+RETURN               : 39
+RIGHTSHIFT           : 25
+RPAREN               : 26 27 28 29 31 35 51
+SEMICOLON            : 15 17 18 23 24 25 29 29 35 39
+STRING               : 21
+STRING_LITERAL       : 42
+TIMES                : 45
+VOID                 : 22
+WHILE                : 28
+error                : 
+
+Nonterminals, with rules where they appear
+
+arguments            : 35 37
+assignment           : 6
+cin_statement        : 8
+compound_statement   : 26 27 27 28 29 31
+cout_statement       : 7
+declaration          : 5
+expression           : 15 18 23 24 26 27 28 29 29 29 36 37 39 43 43 44 44 45 45 46 46 47 47 48 48 49 49 50 50 51
+for_statement        : 11
+function_call        : 13
+function_definition  : 12
+if_statement         : 9
+include_statement    : 4
+parameters           : 31 33
+program              : 0
+return_statement     : 14
+statement            : 2 3
+statements           : 1 3 30
+type                 : 17 18 31 32 33
+while_statement      : 10
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statements
+    (2) statements -> . statement
+    (3) statements -> . statements statement
+    (4) statement -> . include_statement
+    (5) statement -> . declaration
+    (6) statement -> . assignment
+    (7) statement -> . cout_statement
+    (8) statement -> . cin_statement
+    (9) statement -> . if_statement
+    (10) statement -> . while_statement
+    (11) statement -> . for_statement
+    (12) statement -> . function_definition
+    (13) statement -> . function_call
+    (14) statement -> . return_statement
+    (15) statement -> . expression SEMICOLON
+    (16) include_statement -> . INCLUDE LESS IOSTREAM GREATER
+    (17) declaration -> . type IDENTIFIER SEMICOLON
+    (18) declaration -> . type IDENTIFIER EQUALS expression SEMICOLON
+    (23) assignment -> . IDENTIFIER EQUALS expression SEMICOLON
+    (24) cout_statement -> . COUT LEFTSHIFT expression SEMICOLON
+    (25) cin_statement -> . CIN RIGHTSHIFT IDENTIFIER SEMICOLON
+    (26) if_statement -> . IF LPAREN expression RPAREN compound_statement
+    (27) if_statement -> . IF LPAREN expression RPAREN compound_statement ELSE compound_statement
+    (28) while_statement -> . WHILE LPAREN expression RPAREN compound_statement
+    (29) for_statement -> . FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement
+    (31) function_definition -> . type IDENTIFIER LPAREN parameters RPAREN compound_statement
+    (35) function_call -> . IDENTIFIER LPAREN arguments RPAREN SEMICOLON
+    (39) return_statement -> . RETURN expression SEMICOLON
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+    (19) type -> . INT
+    (20) type -> . FLOAT
+    (21) type -> . STRING
+    (22) type -> . VOID
+
+    INCLUDE         shift and go to state 16
+    IDENTIFIER      shift and go to state 18
+    COUT            shift and go to state 19
+    CIN             shift and go to state 20
+    IF              shift and go to state 21
+    WHILE           shift and go to state 23
+    FOR             shift and go to state 24
+    RETURN          shift and go to state 25
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+    INT             shift and go to state 28
+    FLOAT           shift and go to state 29
+    STRING          shift and go to state 30
+    VOID            shift and go to state 31
+
+    program                        shift and go to state 1
+    statements                     shift and go to state 2
+    statement                      shift and go to state 3
+    include_statement              shift and go to state 4
+    declaration                    shift and go to state 5
+    assignment                     shift and go to state 6
+    cout_statement                 shift and go to state 7
+    cin_statement                  shift and go to state 8
+    if_statement                   shift and go to state 9
+    while_statement                shift and go to state 10
+    for_statement                  shift and go to state 11
+    function_definition            shift and go to state 12
+    function_call                  shift and go to state 13
+    return_statement               shift and go to state 14
+    expression                     shift and go to state 15
+    type                           shift and go to state 17
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statements .
+    (3) statements -> statements . statement
+    (4) statement -> . include_statement
+    (5) statement -> . declaration
+    (6) statement -> . assignment
+    (7) statement -> . cout_statement
+    (8) statement -> . cin_statement
+    (9) statement -> . if_statement
+    (10) statement -> . while_statement
+    (11) statement -> . for_statement
+    (12) statement -> . function_definition
+    (13) statement -> . function_call
+    (14) statement -> . return_statement
+    (15) statement -> . expression SEMICOLON
+    (16) include_statement -> . INCLUDE LESS IOSTREAM GREATER
+    (17) declaration -> . type IDENTIFIER SEMICOLON
+    (18) declaration -> . type IDENTIFIER EQUALS expression SEMICOLON
+    (23) assignment -> . IDENTIFIER EQUALS expression SEMICOLON
+    (24) cout_statement -> . COUT LEFTSHIFT expression SEMICOLON
+    (25) cin_statement -> . CIN RIGHTSHIFT IDENTIFIER SEMICOLON
+    (26) if_statement -> . IF LPAREN expression RPAREN compound_statement
+    (27) if_statement -> . IF LPAREN expression RPAREN compound_statement ELSE compound_statement
+    (28) while_statement -> . WHILE LPAREN expression RPAREN compound_statement
+    (29) for_statement -> . FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement
+    (31) function_definition -> . type IDENTIFIER LPAREN parameters RPAREN compound_statement
+    (35) function_call -> . IDENTIFIER LPAREN arguments RPAREN SEMICOLON
+    (39) return_statement -> . RETURN expression SEMICOLON
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+    (19) type -> . INT
+    (20) type -> . FLOAT
+    (21) type -> . STRING
+    (22) type -> . VOID
+
+    $end            reduce using rule 1 (program -> statements .)
+    INCLUDE         shift and go to state 16
+    IDENTIFIER      shift and go to state 18
+    COUT            shift and go to state 19
+    CIN             shift and go to state 20
+    IF              shift and go to state 21
+    WHILE           shift and go to state 23
+    FOR             shift and go to state 24
+    RETURN          shift and go to state 25
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+    INT             shift and go to state 28
+    FLOAT           shift and go to state 29
+    STRING          shift and go to state 30
+    VOID            shift and go to state 31
+
+    statement                      shift and go to state 32
+    include_statement              shift and go to state 4
+    declaration                    shift and go to state 5
+    assignment                     shift and go to state 6
+    cout_statement                 shift and go to state 7
+    cin_statement                  shift and go to state 8
+    if_statement                   shift and go to state 9
+    while_statement                shift and go to state 10
+    for_statement                  shift and go to state 11
+    function_definition            shift and go to state 12
+    function_call                  shift and go to state 13
+    return_statement               shift and go to state 14
+    expression                     shift and go to state 15
+    type                           shift and go to state 17
+
+state 3
+
+    (2) statements -> statement .
+
+    INCLUDE         reduce using rule 2 (statements -> statement .)
+    IDENTIFIER      reduce using rule 2 (statements -> statement .)
+    COUT            reduce using rule 2 (statements -> statement .)
+    CIN             reduce using rule 2 (statements -> statement .)
+    IF              reduce using rule 2 (statements -> statement .)
+    WHILE           reduce using rule 2 (statements -> statement .)
+    FOR             reduce using rule 2 (statements -> statement .)
+    RETURN          reduce using rule 2 (statements -> statement .)
+    NUMBER          reduce using rule 2 (statements -> statement .)
+    STRING_LITERAL  reduce using rule 2 (statements -> statement .)
+    LPAREN          reduce using rule 2 (statements -> statement .)
+    INT             reduce using rule 2 (statements -> statement .)
+    FLOAT           reduce using rule 2 (statements -> statement .)
+    STRING          reduce using rule 2 (statements -> statement .)
+    VOID            reduce using rule 2 (statements -> statement .)
+    $end            reduce using rule 2 (statements -> statement .)
+    RBRACE          reduce using rule 2 (statements -> statement .)
+
+
+state 4
+
+    (4) statement -> include_statement .
+
+    INCLUDE         reduce using rule 4 (statement -> include_statement .)
+    IDENTIFIER      reduce using rule 4 (statement -> include_statement .)
+    COUT            reduce using rule 4 (statement -> include_statement .)
+    CIN             reduce using rule 4 (statement -> include_statement .)
+    IF              reduce using rule 4 (statement -> include_statement .)
+    WHILE           reduce using rule 4 (statement -> include_statement .)
+    FOR             reduce using rule 4 (statement -> include_statement .)
+    RETURN          reduce using rule 4 (statement -> include_statement .)
+    NUMBER          reduce using rule 4 (statement -> include_statement .)
+    STRING_LITERAL  reduce using rule 4 (statement -> include_statement .)
+    LPAREN          reduce using rule 4 (statement -> include_statement .)
+    INT             reduce using rule 4 (statement -> include_statement .)
+    FLOAT           reduce using rule 4 (statement -> include_statement .)
+    STRING          reduce using rule 4 (statement -> include_statement .)
+    VOID            reduce using rule 4 (statement -> include_statement .)
+    $end            reduce using rule 4 (statement -> include_statement .)
+    RBRACE          reduce using rule 4 (statement -> include_statement .)
+
+
+state 5
+
+    (5) statement -> declaration .
+
+    INCLUDE         reduce using rule 5 (statement -> declaration .)
+    IDENTIFIER      reduce using rule 5 (statement -> declaration .)
+    COUT            reduce using rule 5 (statement -> declaration .)
+    CIN             reduce using rule 5 (statement -> declaration .)
+    IF              reduce using rule 5 (statement -> declaration .)
+    WHILE           reduce using rule 5 (statement -> declaration .)
+    FOR             reduce using rule 5 (statement -> declaration .)
+    RETURN          reduce using rule 5 (statement -> declaration .)
+    NUMBER          reduce using rule 5 (statement -> declaration .)
+    STRING_LITERAL  reduce using rule 5 (statement -> declaration .)
+    LPAREN          reduce using rule 5 (statement -> declaration .)
+    INT             reduce using rule 5 (statement -> declaration .)
+    FLOAT           reduce using rule 5 (statement -> declaration .)
+    STRING          reduce using rule 5 (statement -> declaration .)
+    VOID            reduce using rule 5 (statement -> declaration .)
+    $end            reduce using rule 5 (statement -> declaration .)
+    RBRACE          reduce using rule 5 (statement -> declaration .)
+
+
+state 6
+
+    (6) statement -> assignment .
+
+    INCLUDE         reduce using rule 6 (statement -> assignment .)
+    IDENTIFIER      reduce using rule 6 (statement -> assignment .)
+    COUT            reduce using rule 6 (statement -> assignment .)
+    CIN             reduce using rule 6 (statement -> assignment .)
+    IF              reduce using rule 6 (statement -> assignment .)
+    WHILE           reduce using rule 6 (statement -> assignment .)
+    FOR             reduce using rule 6 (statement -> assignment .)
+    RETURN          reduce using rule 6 (statement -> assignment .)
+    NUMBER          reduce using rule 6 (statement -> assignment .)
+    STRING_LITERAL  reduce using rule 6 (statement -> assignment .)
+    LPAREN          reduce using rule 6 (statement -> assignment .)
+    INT             reduce using rule 6 (statement -> assignment .)
+    FLOAT           reduce using rule 6 (statement -> assignment .)
+    STRING          reduce using rule 6 (statement -> assignment .)
+    VOID            reduce using rule 6 (statement -> assignment .)
+    $end            reduce using rule 6 (statement -> assignment .)
+    RBRACE          reduce using rule 6 (statement -> assignment .)
+
+
+state 7
+
+    (7) statement -> cout_statement .
+
+    INCLUDE         reduce using rule 7 (statement -> cout_statement .)
+    IDENTIFIER      reduce using rule 7 (statement -> cout_statement .)
+    COUT            reduce using rule 7 (statement -> cout_statement .)
+    CIN             reduce using rule 7 (statement -> cout_statement .)
+    IF              reduce using rule 7 (statement -> cout_statement .)
+    WHILE           reduce using rule 7 (statement -> cout_statement .)
+    FOR             reduce using rule 7 (statement -> cout_statement .)
+    RETURN          reduce using rule 7 (statement -> cout_statement .)
+    NUMBER          reduce using rule 7 (statement -> cout_statement .)
+    STRING_LITERAL  reduce using rule 7 (statement -> cout_statement .)
+    LPAREN          reduce using rule 7 (statement -> cout_statement .)
+    INT             reduce using rule 7 (statement -> cout_statement .)
+    FLOAT           reduce using rule 7 (statement -> cout_statement .)
+    STRING          reduce using rule 7 (statement -> cout_statement .)
+    VOID            reduce using rule 7 (statement -> cout_statement .)
+    $end            reduce using rule 7 (statement -> cout_statement .)
+    RBRACE          reduce using rule 7 (statement -> cout_statement .)
+
+
+state 8
+
+    (8) statement -> cin_statement .
+
+    INCLUDE         reduce using rule 8 (statement -> cin_statement .)
+    IDENTIFIER      reduce using rule 8 (statement -> cin_statement .)
+    COUT            reduce using rule 8 (statement -> cin_statement .)
+    CIN             reduce using rule 8 (statement -> cin_statement .)
+    IF              reduce using rule 8 (statement -> cin_statement .)
+    WHILE           reduce using rule 8 (statement -> cin_statement .)
+    FOR             reduce using rule 8 (statement -> cin_statement .)
+    RETURN          reduce using rule 8 (statement -> cin_statement .)
+    NUMBER          reduce using rule 8 (statement -> cin_statement .)
+    STRING_LITERAL  reduce using rule 8 (statement -> cin_statement .)
+    LPAREN          reduce using rule 8 (statement -> cin_statement .)
+    INT             reduce using rule 8 (statement -> cin_statement .)
+    FLOAT           reduce using rule 8 (statement -> cin_statement .)
+    STRING          reduce using rule 8 (statement -> cin_statement .)
+    VOID            reduce using rule 8 (statement -> cin_statement .)
+    $end            reduce using rule 8 (statement -> cin_statement .)
+    RBRACE          reduce using rule 8 (statement -> cin_statement .)
+
+
+state 9
+
+    (9) statement -> if_statement .
+
+    INCLUDE         reduce using rule 9 (statement -> if_statement .)
+    IDENTIFIER      reduce using rule 9 (statement -> if_statement .)
+    COUT            reduce using rule 9 (statement -> if_statement .)
+    CIN             reduce using rule 9 (statement -> if_statement .)
+    IF              reduce using rule 9 (statement -> if_statement .)
+    WHILE           reduce using rule 9 (statement -> if_statement .)
+    FOR             reduce using rule 9 (statement -> if_statement .)
+    RETURN          reduce using rule 9 (statement -> if_statement .)
+    NUMBER          reduce using rule 9 (statement -> if_statement .)
+    STRING_LITERAL  reduce using rule 9 (statement -> if_statement .)
+    LPAREN          reduce using rule 9 (statement -> if_statement .)
+    INT             reduce using rule 9 (statement -> if_statement .)
+    FLOAT           reduce using rule 9 (statement -> if_statement .)
+    STRING          reduce using rule 9 (statement -> if_statement .)
+    VOID            reduce using rule 9 (statement -> if_statement .)
+    $end            reduce using rule 9 (statement -> if_statement .)
+    RBRACE          reduce using rule 9 (statement -> if_statement .)
+
+
+state 10
+
+    (10) statement -> while_statement .
+
+    INCLUDE         reduce using rule 10 (statement -> while_statement .)
+    IDENTIFIER      reduce using rule 10 (statement -> while_statement .)
+    COUT            reduce using rule 10 (statement -> while_statement .)
+    CIN             reduce using rule 10 (statement -> while_statement .)
+    IF              reduce using rule 10 (statement -> while_statement .)
+    WHILE           reduce using rule 10 (statement -> while_statement .)
+    FOR             reduce using rule 10 (statement -> while_statement .)
+    RETURN          reduce using rule 10 (statement -> while_statement .)
+    NUMBER          reduce using rule 10 (statement -> while_statement .)
+    STRING_LITERAL  reduce using rule 10 (statement -> while_statement .)
+    LPAREN          reduce using rule 10 (statement -> while_statement .)
+    INT             reduce using rule 10 (statement -> while_statement .)
+    FLOAT           reduce using rule 10 (statement -> while_statement .)
+    STRING          reduce using rule 10 (statement -> while_statement .)
+    VOID            reduce using rule 10 (statement -> while_statement .)
+    $end            reduce using rule 10 (statement -> while_statement .)
+    RBRACE          reduce using rule 10 (statement -> while_statement .)
+
+
+state 11
+
+    (11) statement -> for_statement .
+
+    INCLUDE         reduce using rule 11 (statement -> for_statement .)
+    IDENTIFIER      reduce using rule 11 (statement -> for_statement .)
+    COUT            reduce using rule 11 (statement -> for_statement .)
+    CIN             reduce using rule 11 (statement -> for_statement .)
+    IF              reduce using rule 11 (statement -> for_statement .)
+    WHILE           reduce using rule 11 (statement -> for_statement .)
+    FOR             reduce using rule 11 (statement -> for_statement .)
+    RETURN          reduce using rule 11 (statement -> for_statement .)
+    NUMBER          reduce using rule 11 (statement -> for_statement .)
+    STRING_LITERAL  reduce using rule 11 (statement -> for_statement .)
+    LPAREN          reduce using rule 11 (statement -> for_statement .)
+    INT             reduce using rule 11 (statement -> for_statement .)
+    FLOAT           reduce using rule 11 (statement -> for_statement .)
+    STRING          reduce using rule 11 (statement -> for_statement .)
+    VOID            reduce using rule 11 (statement -> for_statement .)
+    $end            reduce using rule 11 (statement -> for_statement .)
+    RBRACE          reduce using rule 11 (statement -> for_statement .)
+
+
+state 12
+
+    (12) statement -> function_definition .
+
+    INCLUDE         reduce using rule 12 (statement -> function_definition .)
+    IDENTIFIER      reduce using rule 12 (statement -> function_definition .)
+    COUT            reduce using rule 12 (statement -> function_definition .)
+    CIN             reduce using rule 12 (statement -> function_definition .)
+    IF              reduce using rule 12 (statement -> function_definition .)
+    WHILE           reduce using rule 12 (statement -> function_definition .)
+    FOR             reduce using rule 12 (statement -> function_definition .)
+    RETURN          reduce using rule 12 (statement -> function_definition .)
+    NUMBER          reduce using rule 12 (statement -> function_definition .)
+    STRING_LITERAL  reduce using rule 12 (statement -> function_definition .)
+    LPAREN          reduce using rule 12 (statement -> function_definition .)
+    INT             reduce using rule 12 (statement -> function_definition .)
+    FLOAT           reduce using rule 12 (statement -> function_definition .)
+    STRING          reduce using rule 12 (statement -> function_definition .)
+    VOID            reduce using rule 12 (statement -> function_definition .)
+    $end            reduce using rule 12 (statement -> function_definition .)
+    RBRACE          reduce using rule 12 (statement -> function_definition .)
+
+
+state 13
+
+    (13) statement -> function_call .
+
+    INCLUDE         reduce using rule 13 (statement -> function_call .)
+    IDENTIFIER      reduce using rule 13 (statement -> function_call .)
+    COUT            reduce using rule 13 (statement -> function_call .)
+    CIN             reduce using rule 13 (statement -> function_call .)
+    IF              reduce using rule 13 (statement -> function_call .)
+    WHILE           reduce using rule 13 (statement -> function_call .)
+    FOR             reduce using rule 13 (statement -> function_call .)
+    RETURN          reduce using rule 13 (statement -> function_call .)
+    NUMBER          reduce using rule 13 (statement -> function_call .)
+    STRING_LITERAL  reduce using rule 13 (statement -> function_call .)
+    LPAREN          reduce using rule 13 (statement -> function_call .)
+    INT             reduce using rule 13 (statement -> function_call .)
+    FLOAT           reduce using rule 13 (statement -> function_call .)
+    STRING          reduce using rule 13 (statement -> function_call .)
+    VOID            reduce using rule 13 (statement -> function_call .)
+    $end            reduce using rule 13 (statement -> function_call .)
+    RBRACE          reduce using rule 13 (statement -> function_call .)
+
+
+state 14
+
+    (14) statement -> return_statement .
+
+    INCLUDE         reduce using rule 14 (statement -> return_statement .)
+    IDENTIFIER      reduce using rule 14 (statement -> return_statement .)
+    COUT            reduce using rule 14 (statement -> return_statement .)
+    CIN             reduce using rule 14 (statement -> return_statement .)
+    IF              reduce using rule 14 (statement -> return_statement .)
+    WHILE           reduce using rule 14 (statement -> return_statement .)
+    FOR             reduce using rule 14 (statement -> return_statement .)
+    RETURN          reduce using rule 14 (statement -> return_statement .)
+    NUMBER          reduce using rule 14 (statement -> return_statement .)
+    STRING_LITERAL  reduce using rule 14 (statement -> return_statement .)
+    LPAREN          reduce using rule 14 (statement -> return_statement .)
+    INT             reduce using rule 14 (statement -> return_statement .)
+    FLOAT           reduce using rule 14 (statement -> return_statement .)
+    STRING          reduce using rule 14 (statement -> return_statement .)
+    VOID            reduce using rule 14 (statement -> return_statement .)
+    $end            reduce using rule 14 (statement -> return_statement .)
+    RBRACE          reduce using rule 14 (statement -> return_statement .)
+
+
+state 15
+
+    (15) statement -> expression . SEMICOLON
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 33
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 16
+
+    (16) include_statement -> INCLUDE . LESS IOSTREAM GREATER
+
+    LESS            shift and go to state 42
+
+
+state 17
+
+    (17) declaration -> type . IDENTIFIER SEMICOLON
+    (18) declaration -> type . IDENTIFIER EQUALS expression SEMICOLON
+    (31) function_definition -> type . IDENTIFIER LPAREN parameters RPAREN compound_statement
+
+    IDENTIFIER      shift and go to state 43
+
+
+state 18
+
+    (23) assignment -> IDENTIFIER . EQUALS expression SEMICOLON
+    (35) function_call -> IDENTIFIER . LPAREN arguments RPAREN SEMICOLON
+    (40) expression -> IDENTIFIER .
+
+    EQUALS          shift and go to state 44
+    LPAREN          shift and go to state 45
+    SEMICOLON       reduce using rule 40 (expression -> IDENTIFIER .)
+    PLUS            reduce using rule 40 (expression -> IDENTIFIER .)
+    MINUS           reduce using rule 40 (expression -> IDENTIFIER .)
+    TIMES           reduce using rule 40 (expression -> IDENTIFIER .)
+    DIVIDE          reduce using rule 40 (expression -> IDENTIFIER .)
+    LESS            reduce using rule 40 (expression -> IDENTIFIER .)
+    GREATER         reduce using rule 40 (expression -> IDENTIFIER .)
+    LESSEQUAL       reduce using rule 40 (expression -> IDENTIFIER .)
+    GREATEREQUAL    reduce using rule 40 (expression -> IDENTIFIER .)
+
+
+state 19
+
+    (24) cout_statement -> COUT . LEFTSHIFT expression SEMICOLON
+
+    LEFTSHIFT       shift and go to state 46
+
+
+state 20
+
+    (25) cin_statement -> CIN . RIGHTSHIFT IDENTIFIER SEMICOLON
+
+    RIGHTSHIFT      shift and go to state 47
+
+
+state 21
+
+    (26) if_statement -> IF . LPAREN expression RPAREN compound_statement
+    (27) if_statement -> IF . LPAREN expression RPAREN compound_statement ELSE compound_statement
+
+    LPAREN          shift and go to state 48
+
+
+state 22
+
+    (51) expression -> LPAREN . expression RPAREN
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 49
+
+state 23
+
+    (28) while_statement -> WHILE . LPAREN expression RPAREN compound_statement
+
+    LPAREN          shift and go to state 51
+
+
+state 24
+
+    (29) for_statement -> FOR . LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement
+
+    LPAREN          shift and go to state 52
+
+
+state 25
+
+    (39) return_statement -> RETURN . expression SEMICOLON
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 53
+
+state 26
+
+    (41) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 41 (expression -> NUMBER .)
+    PLUS            reduce using rule 41 (expression -> NUMBER .)
+    MINUS           reduce using rule 41 (expression -> NUMBER .)
+    TIMES           reduce using rule 41 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 41 (expression -> NUMBER .)
+    LESS            reduce using rule 41 (expression -> NUMBER .)
+    GREATER         reduce using rule 41 (expression -> NUMBER .)
+    LESSEQUAL       reduce using rule 41 (expression -> NUMBER .)
+    GREATEREQUAL    reduce using rule 41 (expression -> NUMBER .)
+    RPAREN          reduce using rule 41 (expression -> NUMBER .)
+    COMMA           reduce using rule 41 (expression -> NUMBER .)
+
+
+state 27
+
+    (42) expression -> STRING_LITERAL .
+
+    SEMICOLON       reduce using rule 42 (expression -> STRING_LITERAL .)
+    PLUS            reduce using rule 42 (expression -> STRING_LITERAL .)
+    MINUS           reduce using rule 42 (expression -> STRING_LITERAL .)
+    TIMES           reduce using rule 42 (expression -> STRING_LITERAL .)
+    DIVIDE          reduce using rule 42 (expression -> STRING_LITERAL .)
+    LESS            reduce using rule 42 (expression -> STRING_LITERAL .)
+    GREATER         reduce using rule 42 (expression -> STRING_LITERAL .)
+    LESSEQUAL       reduce using rule 42 (expression -> STRING_LITERAL .)
+    GREATEREQUAL    reduce using rule 42 (expression -> STRING_LITERAL .)
+    RPAREN          reduce using rule 42 (expression -> STRING_LITERAL .)
+    COMMA           reduce using rule 42 (expression -> STRING_LITERAL .)
+
+
+state 28
+
+    (19) type -> INT .
+
+    IDENTIFIER      reduce using rule 19 (type -> INT .)
+
+
+state 29
+
+    (20) type -> FLOAT .
+
+    IDENTIFIER      reduce using rule 20 (type -> FLOAT .)
+
+
+state 30
+
+    (21) type -> STRING .
+
+    IDENTIFIER      reduce using rule 21 (type -> STRING .)
+
+
+state 31
+
+    (22) type -> VOID .
+
+    IDENTIFIER      reduce using rule 22 (type -> VOID .)
+
+
+state 32
+
+    (3) statements -> statements statement .
+
+    INCLUDE         reduce using rule 3 (statements -> statements statement .)
+    IDENTIFIER      reduce using rule 3 (statements -> statements statement .)
+    COUT            reduce using rule 3 (statements -> statements statement .)
+    CIN             reduce using rule 3 (statements -> statements statement .)
+    IF              reduce using rule 3 (statements -> statements statement .)
+    WHILE           reduce using rule 3 (statements -> statements statement .)
+    FOR             reduce using rule 3 (statements -> statements statement .)
+    RETURN          reduce using rule 3 (statements -> statements statement .)
+    NUMBER          reduce using rule 3 (statements -> statements statement .)
+    STRING_LITERAL  reduce using rule 3 (statements -> statements statement .)
+    LPAREN          reduce using rule 3 (statements -> statements statement .)
+    INT             reduce using rule 3 (statements -> statements statement .)
+    FLOAT           reduce using rule 3 (statements -> statements statement .)
+    STRING          reduce using rule 3 (statements -> statements statement .)
+    VOID            reduce using rule 3 (statements -> statements statement .)
+    $end            reduce using rule 3 (statements -> statements statement .)
+    RBRACE          reduce using rule 3 (statements -> statements statement .)
+
+
+state 33
+
+    (15) statement -> expression SEMICOLON .
+
+    INCLUDE         reduce using rule 15 (statement -> expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 15 (statement -> expression SEMICOLON .)
+    COUT            reduce using rule 15 (statement -> expression SEMICOLON .)
+    CIN             reduce using rule 15 (statement -> expression SEMICOLON .)
+    IF              reduce using rule 15 (statement -> expression SEMICOLON .)
+    WHILE           reduce using rule 15 (statement -> expression SEMICOLON .)
+    FOR             reduce using rule 15 (statement -> expression SEMICOLON .)
+    RETURN          reduce using rule 15 (statement -> expression SEMICOLON .)
+    NUMBER          reduce using rule 15 (statement -> expression SEMICOLON .)
+    STRING_LITERAL  reduce using rule 15 (statement -> expression SEMICOLON .)
+    LPAREN          reduce using rule 15 (statement -> expression SEMICOLON .)
+    INT             reduce using rule 15 (statement -> expression SEMICOLON .)
+    FLOAT           reduce using rule 15 (statement -> expression SEMICOLON .)
+    STRING          reduce using rule 15 (statement -> expression SEMICOLON .)
+    VOID            reduce using rule 15 (statement -> expression SEMICOLON .)
+    $end            reduce using rule 15 (statement -> expression SEMICOLON .)
+    RBRACE          reduce using rule 15 (statement -> expression SEMICOLON .)
+
+
+state 34
+
+    (43) expression -> expression PLUS . expression
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 54
+
+state 35
+
+    (44) expression -> expression MINUS . expression
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 55
+
+state 36
+
+    (45) expression -> expression TIMES . expression
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 56
+
+state 37
+
+    (46) expression -> expression DIVIDE . expression
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 57
+
+state 38
+
+    (47) expression -> expression LESS . expression
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 58
+
+state 39
+
+    (48) expression -> expression GREATER . expression
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 59
+
+state 40
+
+    (49) expression -> expression LESSEQUAL . expression
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 60
+
+state 41
+
+    (50) expression -> expression GREATEREQUAL . expression
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 61
+
+state 42
+
+    (16) include_statement -> INCLUDE LESS . IOSTREAM GREATER
+
+    IOSTREAM        shift and go to state 62
+
+
+state 43
+
+    (17) declaration -> type IDENTIFIER . SEMICOLON
+    (18) declaration -> type IDENTIFIER . EQUALS expression SEMICOLON
+    (31) function_definition -> type IDENTIFIER . LPAREN parameters RPAREN compound_statement
+
+    SEMICOLON       shift and go to state 63
+    EQUALS          shift and go to state 64
+    LPAREN          shift and go to state 65
+
+
+state 44
+
+    (23) assignment -> IDENTIFIER EQUALS . expression SEMICOLON
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 66
+
+state 45
+
+    (35) function_call -> IDENTIFIER LPAREN . arguments RPAREN SEMICOLON
+    (36) arguments -> . expression
+    (37) arguments -> . expression COMMA arguments
+    (38) arguments -> .
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    RPAREN          reduce using rule 38 (arguments -> .)
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    arguments                      shift and go to state 67
+    expression                     shift and go to state 68
+
+state 46
+
+    (24) cout_statement -> COUT LEFTSHIFT . expression SEMICOLON
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 69
+
+state 47
+
+    (25) cin_statement -> CIN RIGHTSHIFT . IDENTIFIER SEMICOLON
+
+    IDENTIFIER      shift and go to state 70
+
+
+state 48
+
+    (26) if_statement -> IF LPAREN . expression RPAREN compound_statement
+    (27) if_statement -> IF LPAREN . expression RPAREN compound_statement ELSE compound_statement
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 71
+
+state 49
+
+    (51) expression -> LPAREN expression . RPAREN
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    RPAREN          shift and go to state 72
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 50
+
+    (40) expression -> IDENTIFIER .
+
+    RPAREN          reduce using rule 40 (expression -> IDENTIFIER .)
+    PLUS            reduce using rule 40 (expression -> IDENTIFIER .)
+    MINUS           reduce using rule 40 (expression -> IDENTIFIER .)
+    TIMES           reduce using rule 40 (expression -> IDENTIFIER .)
+    DIVIDE          reduce using rule 40 (expression -> IDENTIFIER .)
+    LESS            reduce using rule 40 (expression -> IDENTIFIER .)
+    GREATER         reduce using rule 40 (expression -> IDENTIFIER .)
+    LESSEQUAL       reduce using rule 40 (expression -> IDENTIFIER .)
+    GREATEREQUAL    reduce using rule 40 (expression -> IDENTIFIER .)
+    SEMICOLON       reduce using rule 40 (expression -> IDENTIFIER .)
+    COMMA           reduce using rule 40 (expression -> IDENTIFIER .)
+
+
+state 51
+
+    (28) while_statement -> WHILE LPAREN . expression RPAREN compound_statement
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 73
+
+state 52
+
+    (29) for_statement -> FOR LPAREN . expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 74
+
+state 53
+
+    (39) return_statement -> RETURN expression . SEMICOLON
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 75
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 54
+
+    (43) expression -> expression PLUS expression .
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for LESSEQUAL resolved as shift
+  ! shift/reduce conflict for GREATEREQUAL resolved as shift
+    SEMICOLON       reduce using rule 43 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 43 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 43 (expression -> expression PLUS expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+  ! PLUS            [ reduce using rule 43 (expression -> expression PLUS expression .) ]
+  ! MINUS           [ reduce using rule 43 (expression -> expression PLUS expression .) ]
+  ! TIMES           [ reduce using rule 43 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 43 (expression -> expression PLUS expression .) ]
+  ! LESS            [ reduce using rule 43 (expression -> expression PLUS expression .) ]
+  ! GREATER         [ reduce using rule 43 (expression -> expression PLUS expression .) ]
+  ! LESSEQUAL       [ reduce using rule 43 (expression -> expression PLUS expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 43 (expression -> expression PLUS expression .) ]
+
+
+state 55
+
+    (44) expression -> expression MINUS expression .
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for LESSEQUAL resolved as shift
+  ! shift/reduce conflict for GREATEREQUAL resolved as shift
+    SEMICOLON       reduce using rule 44 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 44 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 44 (expression -> expression MINUS expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+  ! PLUS            [ reduce using rule 44 (expression -> expression MINUS expression .) ]
+  ! MINUS           [ reduce using rule 44 (expression -> expression MINUS expression .) ]
+  ! TIMES           [ reduce using rule 44 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 44 (expression -> expression MINUS expression .) ]
+  ! LESS            [ reduce using rule 44 (expression -> expression MINUS expression .) ]
+  ! GREATER         [ reduce using rule 44 (expression -> expression MINUS expression .) ]
+  ! LESSEQUAL       [ reduce using rule 44 (expression -> expression MINUS expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 44 (expression -> expression MINUS expression .) ]
+
+
+state 56
+
+    (45) expression -> expression TIMES expression .
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for LESSEQUAL resolved as shift
+  ! shift/reduce conflict for GREATEREQUAL resolved as shift
+    SEMICOLON       reduce using rule 45 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 45 (expression -> expression TIMES expression .)
+    COMMA           reduce using rule 45 (expression -> expression TIMES expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+  ! PLUS            [ reduce using rule 45 (expression -> expression TIMES expression .) ]
+  ! MINUS           [ reduce using rule 45 (expression -> expression TIMES expression .) ]
+  ! TIMES           [ reduce using rule 45 (expression -> expression TIMES expression .) ]
+  ! DIVIDE          [ reduce using rule 45 (expression -> expression TIMES expression .) ]
+  ! LESS            [ reduce using rule 45 (expression -> expression TIMES expression .) ]
+  ! GREATER         [ reduce using rule 45 (expression -> expression TIMES expression .) ]
+  ! LESSEQUAL       [ reduce using rule 45 (expression -> expression TIMES expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 45 (expression -> expression TIMES expression .) ]
+
+
+state 57
+
+    (46) expression -> expression DIVIDE expression .
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for LESSEQUAL resolved as shift
+  ! shift/reduce conflict for GREATEREQUAL resolved as shift
+    SEMICOLON       reduce using rule 46 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 46 (expression -> expression DIVIDE expression .)
+    COMMA           reduce using rule 46 (expression -> expression DIVIDE expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+  ! PLUS            [ reduce using rule 46 (expression -> expression DIVIDE expression .) ]
+  ! MINUS           [ reduce using rule 46 (expression -> expression DIVIDE expression .) ]
+  ! TIMES           [ reduce using rule 46 (expression -> expression DIVIDE expression .) ]
+  ! DIVIDE          [ reduce using rule 46 (expression -> expression DIVIDE expression .) ]
+  ! LESS            [ reduce using rule 46 (expression -> expression DIVIDE expression .) ]
+  ! GREATER         [ reduce using rule 46 (expression -> expression DIVIDE expression .) ]
+  ! LESSEQUAL       [ reduce using rule 46 (expression -> expression DIVIDE expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 46 (expression -> expression DIVIDE expression .) ]
+
+
+state 58
+
+    (47) expression -> expression LESS expression .
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for LESSEQUAL resolved as shift
+  ! shift/reduce conflict for GREATEREQUAL resolved as shift
+    SEMICOLON       reduce using rule 47 (expression -> expression LESS expression .)
+    RPAREN          reduce using rule 47 (expression -> expression LESS expression .)
+    COMMA           reduce using rule 47 (expression -> expression LESS expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+  ! PLUS            [ reduce using rule 47 (expression -> expression LESS expression .) ]
+  ! MINUS           [ reduce using rule 47 (expression -> expression LESS expression .) ]
+  ! TIMES           [ reduce using rule 47 (expression -> expression LESS expression .) ]
+  ! DIVIDE          [ reduce using rule 47 (expression -> expression LESS expression .) ]
+  ! LESS            [ reduce using rule 47 (expression -> expression LESS expression .) ]
+  ! GREATER         [ reduce using rule 47 (expression -> expression LESS expression .) ]
+  ! LESSEQUAL       [ reduce using rule 47 (expression -> expression LESS expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 47 (expression -> expression LESS expression .) ]
+
+
+state 59
+
+    (48) expression -> expression GREATER expression .
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for LESSEQUAL resolved as shift
+  ! shift/reduce conflict for GREATEREQUAL resolved as shift
+    SEMICOLON       reduce using rule 48 (expression -> expression GREATER expression .)
+    RPAREN          reduce using rule 48 (expression -> expression GREATER expression .)
+    COMMA           reduce using rule 48 (expression -> expression GREATER expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+  ! PLUS            [ reduce using rule 48 (expression -> expression GREATER expression .) ]
+  ! MINUS           [ reduce using rule 48 (expression -> expression GREATER expression .) ]
+  ! TIMES           [ reduce using rule 48 (expression -> expression GREATER expression .) ]
+  ! DIVIDE          [ reduce using rule 48 (expression -> expression GREATER expression .) ]
+  ! LESS            [ reduce using rule 48 (expression -> expression GREATER expression .) ]
+  ! GREATER         [ reduce using rule 48 (expression -> expression GREATER expression .) ]
+  ! LESSEQUAL       [ reduce using rule 48 (expression -> expression GREATER expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 48 (expression -> expression GREATER expression .) ]
+
+
+state 60
+
+    (49) expression -> expression LESSEQUAL expression .
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for LESSEQUAL resolved as shift
+  ! shift/reduce conflict for GREATEREQUAL resolved as shift
+    SEMICOLON       reduce using rule 49 (expression -> expression LESSEQUAL expression .)
+    RPAREN          reduce using rule 49 (expression -> expression LESSEQUAL expression .)
+    COMMA           reduce using rule 49 (expression -> expression LESSEQUAL expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+  ! PLUS            [ reduce using rule 49 (expression -> expression LESSEQUAL expression .) ]
+  ! MINUS           [ reduce using rule 49 (expression -> expression LESSEQUAL expression .) ]
+  ! TIMES           [ reduce using rule 49 (expression -> expression LESSEQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 49 (expression -> expression LESSEQUAL expression .) ]
+  ! LESS            [ reduce using rule 49 (expression -> expression LESSEQUAL expression .) ]
+  ! GREATER         [ reduce using rule 49 (expression -> expression LESSEQUAL expression .) ]
+  ! LESSEQUAL       [ reduce using rule 49 (expression -> expression LESSEQUAL expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 49 (expression -> expression LESSEQUAL expression .) ]
+
+
+state 61
+
+    (50) expression -> expression GREATEREQUAL expression .
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for LESSEQUAL resolved as shift
+  ! shift/reduce conflict for GREATEREQUAL resolved as shift
+    SEMICOLON       reduce using rule 50 (expression -> expression GREATEREQUAL expression .)
+    RPAREN          reduce using rule 50 (expression -> expression GREATEREQUAL expression .)
+    COMMA           reduce using rule 50 (expression -> expression GREATEREQUAL expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+  ! PLUS            [ reduce using rule 50 (expression -> expression GREATEREQUAL expression .) ]
+  ! MINUS           [ reduce using rule 50 (expression -> expression GREATEREQUAL expression .) ]
+  ! TIMES           [ reduce using rule 50 (expression -> expression GREATEREQUAL expression .) ]
+  ! DIVIDE          [ reduce using rule 50 (expression -> expression GREATEREQUAL expression .) ]
+  ! LESS            [ reduce using rule 50 (expression -> expression GREATEREQUAL expression .) ]
+  ! GREATER         [ reduce using rule 50 (expression -> expression GREATEREQUAL expression .) ]
+  ! LESSEQUAL       [ reduce using rule 50 (expression -> expression GREATEREQUAL expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 50 (expression -> expression GREATEREQUAL expression .) ]
+
+
+state 62
+
+    (16) include_statement -> INCLUDE LESS IOSTREAM . GREATER
+
+    GREATER         shift and go to state 76
+
+
+state 63
+
+    (17) declaration -> type IDENTIFIER SEMICOLON .
+
+    INCLUDE         reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    IDENTIFIER      reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    COUT            reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    CIN             reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    IF              reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    WHILE           reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    FOR             reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    RETURN          reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    NUMBER          reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    STRING_LITERAL  reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    LPAREN          reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    INT             reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    FLOAT           reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    STRING          reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    VOID            reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    $end            reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+    RBRACE          reduce using rule 17 (declaration -> type IDENTIFIER SEMICOLON .)
+
+
+state 64
+
+    (18) declaration -> type IDENTIFIER EQUALS . expression SEMICOLON
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 77
+
+state 65
+
+    (31) function_definition -> type IDENTIFIER LPAREN . parameters RPAREN compound_statement
+    (32) parameters -> . type IDENTIFIER
+    (33) parameters -> . type IDENTIFIER COMMA parameters
+    (34) parameters -> .
+    (19) type -> . INT
+    (20) type -> . FLOAT
+    (21) type -> . STRING
+    (22) type -> . VOID
+
+    RPAREN          reduce using rule 34 (parameters -> .)
+    INT             shift and go to state 28
+    FLOAT           shift and go to state 29
+    STRING          shift and go to state 30
+    VOID            shift and go to state 31
+
+    type                           shift and go to state 78
+    parameters                     shift and go to state 79
+
+state 66
+
+    (23) assignment -> IDENTIFIER EQUALS expression . SEMICOLON
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 80
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 67
+
+    (35) function_call -> IDENTIFIER LPAREN arguments . RPAREN SEMICOLON
+
+    RPAREN          shift and go to state 81
+
+
+state 68
+
+    (36) arguments -> expression .
+    (37) arguments -> expression . COMMA arguments
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    RPAREN          reduce using rule 36 (arguments -> expression .)
+    COMMA           shift and go to state 82
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 69
+
+    (24) cout_statement -> COUT LEFTSHIFT expression . SEMICOLON
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 83
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 70
+
+    (25) cin_statement -> CIN RIGHTSHIFT IDENTIFIER . SEMICOLON
+
+    SEMICOLON       shift and go to state 84
+
+
+state 71
+
+    (26) if_statement -> IF LPAREN expression . RPAREN compound_statement
+    (27) if_statement -> IF LPAREN expression . RPAREN compound_statement ELSE compound_statement
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    RPAREN          shift and go to state 85
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 72
+
+    (51) expression -> LPAREN expression RPAREN .
+
+    SEMICOLON       reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+    LESS            reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+    GREATER         reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+    LESSEQUAL       reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+    GREATEREQUAL    reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+    COMMA           reduce using rule 51 (expression -> LPAREN expression RPAREN .)
+
+
+state 73
+
+    (28) while_statement -> WHILE LPAREN expression . RPAREN compound_statement
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    RPAREN          shift and go to state 86
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 74
+
+    (29) for_statement -> FOR LPAREN expression . SEMICOLON expression SEMICOLON expression RPAREN compound_statement
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 87
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 75
+
+    (39) return_statement -> RETURN expression SEMICOLON .
+
+    INCLUDE         reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    COUT            reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    CIN             reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    IF              reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    WHILE           reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    FOR             reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    RETURN          reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    NUMBER          reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    STRING_LITERAL  reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    LPAREN          reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    INT             reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    FLOAT           reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    STRING          reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    VOID            reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    $end            reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+    RBRACE          reduce using rule 39 (return_statement -> RETURN expression SEMICOLON .)
+
+
+state 76
+
+    (16) include_statement -> INCLUDE LESS IOSTREAM GREATER .
+
+    INCLUDE         reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    IDENTIFIER      reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    COUT            reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    CIN             reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    IF              reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    WHILE           reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    FOR             reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    RETURN          reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    NUMBER          reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    STRING_LITERAL  reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    LPAREN          reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    INT             reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    FLOAT           reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    STRING          reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    VOID            reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    $end            reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+    RBRACE          reduce using rule 16 (include_statement -> INCLUDE LESS IOSTREAM GREATER .)
+
+
+state 77
+
+    (18) declaration -> type IDENTIFIER EQUALS expression . SEMICOLON
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 88
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 78
+
+    (32) parameters -> type . IDENTIFIER
+    (33) parameters -> type . IDENTIFIER COMMA parameters
+
+    IDENTIFIER      shift and go to state 89
+
+
+state 79
+
+    (31) function_definition -> type IDENTIFIER LPAREN parameters . RPAREN compound_statement
+
+    RPAREN          shift and go to state 90
+
+
+state 80
+
+    (23) assignment -> IDENTIFIER EQUALS expression SEMICOLON .
+
+    INCLUDE         reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    COUT            reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    CIN             reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    IF              reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    WHILE           reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    FOR             reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    RETURN          reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    NUMBER          reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    STRING_LITERAL  reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    LPAREN          reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    INT             reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    FLOAT           reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    STRING          reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    VOID            reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    $end            reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+    RBRACE          reduce using rule 23 (assignment -> IDENTIFIER EQUALS expression SEMICOLON .)
+
+
+state 81
+
+    (35) function_call -> IDENTIFIER LPAREN arguments RPAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 91
+
+
+state 82
+
+    (37) arguments -> expression COMMA . arguments
+    (36) arguments -> . expression
+    (37) arguments -> . expression COMMA arguments
+    (38) arguments -> .
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    RPAREN          reduce using rule 38 (arguments -> .)
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 68
+    arguments                      shift and go to state 92
+
+state 83
+
+    (24) cout_statement -> COUT LEFTSHIFT expression SEMICOLON .
+
+    INCLUDE         reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    COUT            reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    CIN             reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    IF              reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    WHILE           reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    FOR             reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    RETURN          reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    NUMBER          reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    STRING_LITERAL  reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    LPAREN          reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    INT             reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    FLOAT           reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    STRING          reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    VOID            reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    $end            reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+    RBRACE          reduce using rule 24 (cout_statement -> COUT LEFTSHIFT expression SEMICOLON .)
+
+
+state 84
+
+    (25) cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .
+
+    INCLUDE         reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    IDENTIFIER      reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    COUT            reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    CIN             reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    IF              reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    WHILE           reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    FOR             reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    RETURN          reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    NUMBER          reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    STRING_LITERAL  reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    LPAREN          reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    INT             reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    FLOAT           reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    STRING          reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    VOID            reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    $end            reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+    RBRACE          reduce using rule 25 (cin_statement -> CIN RIGHTSHIFT IDENTIFIER SEMICOLON .)
+
+
+state 85
+
+    (26) if_statement -> IF LPAREN expression RPAREN . compound_statement
+    (27) if_statement -> IF LPAREN expression RPAREN . compound_statement ELSE compound_statement
+    (30) compound_statement -> . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 94
+
+    compound_statement             shift and go to state 93
+
+state 86
+
+    (28) while_statement -> WHILE LPAREN expression RPAREN . compound_statement
+    (30) compound_statement -> . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 94
+
+    compound_statement             shift and go to state 95
+
+state 87
+
+    (29) for_statement -> FOR LPAREN expression SEMICOLON . expression SEMICOLON expression RPAREN compound_statement
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 96
+
+state 88
+
+    (18) declaration -> type IDENTIFIER EQUALS expression SEMICOLON .
+
+    INCLUDE         reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    IDENTIFIER      reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    COUT            reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    CIN             reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    IF              reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    WHILE           reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    FOR             reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    RETURN          reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    NUMBER          reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    STRING_LITERAL  reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    LPAREN          reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    INT             reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    FLOAT           reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    STRING          reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    VOID            reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    $end            reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+    RBRACE          reduce using rule 18 (declaration -> type IDENTIFIER EQUALS expression SEMICOLON .)
+
+
+state 89
+
+    (32) parameters -> type IDENTIFIER .
+    (33) parameters -> type IDENTIFIER . COMMA parameters
+
+    RPAREN          reduce using rule 32 (parameters -> type IDENTIFIER .)
+    COMMA           shift and go to state 97
+
+
+state 90
+
+    (31) function_definition -> type IDENTIFIER LPAREN parameters RPAREN . compound_statement
+    (30) compound_statement -> . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 94
+
+    compound_statement             shift and go to state 98
+
+state 91
+
+    (35) function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .
+
+    INCLUDE         reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    IDENTIFIER      reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    COUT            reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    CIN             reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    IF              reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    WHILE           reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    FOR             reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    RETURN          reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    NUMBER          reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    STRING_LITERAL  reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    LPAREN          reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    INT             reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    FLOAT           reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    STRING          reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    VOID            reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    $end            reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+    RBRACE          reduce using rule 35 (function_call -> IDENTIFIER LPAREN arguments RPAREN SEMICOLON .)
+
+
+state 92
+
+    (37) arguments -> expression COMMA arguments .
+
+    RPAREN          reduce using rule 37 (arguments -> expression COMMA arguments .)
+
+
+state 93
+
+    (26) if_statement -> IF LPAREN expression RPAREN compound_statement .
+    (27) if_statement -> IF LPAREN expression RPAREN compound_statement . ELSE compound_statement
+
+    INCLUDE         reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    IDENTIFIER      reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    COUT            reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    CIN             reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    IF              reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    WHILE           reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    FOR             reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    RETURN          reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    NUMBER          reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    STRING_LITERAL  reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    LPAREN          reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    INT             reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    FLOAT           reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    STRING          reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    VOID            reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    $end            reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    RBRACE          reduce using rule 26 (if_statement -> IF LPAREN expression RPAREN compound_statement .)
+    ELSE            shift and go to state 99
+
+
+state 94
+
+    (30) compound_statement -> LBRACE . statements RBRACE
+    (2) statements -> . statement
+    (3) statements -> . statements statement
+    (4) statement -> . include_statement
+    (5) statement -> . declaration
+    (6) statement -> . assignment
+    (7) statement -> . cout_statement
+    (8) statement -> . cin_statement
+    (9) statement -> . if_statement
+    (10) statement -> . while_statement
+    (11) statement -> . for_statement
+    (12) statement -> . function_definition
+    (13) statement -> . function_call
+    (14) statement -> . return_statement
+    (15) statement -> . expression SEMICOLON
+    (16) include_statement -> . INCLUDE LESS IOSTREAM GREATER
+    (17) declaration -> . type IDENTIFIER SEMICOLON
+    (18) declaration -> . type IDENTIFIER EQUALS expression SEMICOLON
+    (23) assignment -> . IDENTIFIER EQUALS expression SEMICOLON
+    (24) cout_statement -> . COUT LEFTSHIFT expression SEMICOLON
+    (25) cin_statement -> . CIN RIGHTSHIFT IDENTIFIER SEMICOLON
+    (26) if_statement -> . IF LPAREN expression RPAREN compound_statement
+    (27) if_statement -> . IF LPAREN expression RPAREN compound_statement ELSE compound_statement
+    (28) while_statement -> . WHILE LPAREN expression RPAREN compound_statement
+    (29) for_statement -> . FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement
+    (31) function_definition -> . type IDENTIFIER LPAREN parameters RPAREN compound_statement
+    (35) function_call -> . IDENTIFIER LPAREN arguments RPAREN SEMICOLON
+    (39) return_statement -> . RETURN expression SEMICOLON
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+    (19) type -> . INT
+    (20) type -> . FLOAT
+    (21) type -> . STRING
+    (22) type -> . VOID
+
+    INCLUDE         shift and go to state 16
+    IDENTIFIER      shift and go to state 18
+    COUT            shift and go to state 19
+    CIN             shift and go to state 20
+    IF              shift and go to state 21
+    WHILE           shift and go to state 23
+    FOR             shift and go to state 24
+    RETURN          shift and go to state 25
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+    INT             shift and go to state 28
+    FLOAT           shift and go to state 29
+    STRING          shift and go to state 30
+    VOID            shift and go to state 31
+
+    statements                     shift and go to state 100
+    statement                      shift and go to state 3
+    include_statement              shift and go to state 4
+    declaration                    shift and go to state 5
+    assignment                     shift and go to state 6
+    cout_statement                 shift and go to state 7
+    cin_statement                  shift and go to state 8
+    if_statement                   shift and go to state 9
+    while_statement                shift and go to state 10
+    for_statement                  shift and go to state 11
+    function_definition            shift and go to state 12
+    function_call                  shift and go to state 13
+    return_statement               shift and go to state 14
+    expression                     shift and go to state 15
+    type                           shift and go to state 17
+
+state 95
+
+    (28) while_statement -> WHILE LPAREN expression RPAREN compound_statement .
+
+    INCLUDE         reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    IDENTIFIER      reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    COUT            reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    CIN             reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    IF              reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    WHILE           reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    FOR             reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    RETURN          reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    NUMBER          reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    STRING_LITERAL  reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    LPAREN          reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    INT             reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    FLOAT           reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    STRING          reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    VOID            reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    $end            reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+    RBRACE          reduce using rule 28 (while_statement -> WHILE LPAREN expression RPAREN compound_statement .)
+
+
+state 96
+
+    (29) for_statement -> FOR LPAREN expression SEMICOLON expression . SEMICOLON expression RPAREN compound_statement
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    SEMICOLON       shift and go to state 101
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 97
+
+    (33) parameters -> type IDENTIFIER COMMA . parameters
+    (32) parameters -> . type IDENTIFIER
+    (33) parameters -> . type IDENTIFIER COMMA parameters
+    (34) parameters -> .
+    (19) type -> . INT
+    (20) type -> . FLOAT
+    (21) type -> . STRING
+    (22) type -> . VOID
+
+    RPAREN          reduce using rule 34 (parameters -> .)
+    INT             shift and go to state 28
+    FLOAT           shift and go to state 29
+    STRING          shift and go to state 30
+    VOID            shift and go to state 31
+
+    type                           shift and go to state 78
+    parameters                     shift and go to state 102
+
+state 98
+
+    (31) function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .
+
+    INCLUDE         reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    IDENTIFIER      reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    COUT            reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    CIN             reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    IF              reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    WHILE           reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    FOR             reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    RETURN          reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    NUMBER          reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    STRING_LITERAL  reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    LPAREN          reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    INT             reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    FLOAT           reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    STRING          reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    VOID            reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    $end            reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+    RBRACE          reduce using rule 31 (function_definition -> type IDENTIFIER LPAREN parameters RPAREN compound_statement .)
+
+
+state 99
+
+    (27) if_statement -> IF LPAREN expression RPAREN compound_statement ELSE . compound_statement
+    (30) compound_statement -> . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 94
+
+    compound_statement             shift and go to state 103
+
+state 100
+
+    (30) compound_statement -> LBRACE statements . RBRACE
+    (3) statements -> statements . statement
+    (4) statement -> . include_statement
+    (5) statement -> . declaration
+    (6) statement -> . assignment
+    (7) statement -> . cout_statement
+    (8) statement -> . cin_statement
+    (9) statement -> . if_statement
+    (10) statement -> . while_statement
+    (11) statement -> . for_statement
+    (12) statement -> . function_definition
+    (13) statement -> . function_call
+    (14) statement -> . return_statement
+    (15) statement -> . expression SEMICOLON
+    (16) include_statement -> . INCLUDE LESS IOSTREAM GREATER
+    (17) declaration -> . type IDENTIFIER SEMICOLON
+    (18) declaration -> . type IDENTIFIER EQUALS expression SEMICOLON
+    (23) assignment -> . IDENTIFIER EQUALS expression SEMICOLON
+    (24) cout_statement -> . COUT LEFTSHIFT expression SEMICOLON
+    (25) cin_statement -> . CIN RIGHTSHIFT IDENTIFIER SEMICOLON
+    (26) if_statement -> . IF LPAREN expression RPAREN compound_statement
+    (27) if_statement -> . IF LPAREN expression RPAREN compound_statement ELSE compound_statement
+    (28) while_statement -> . WHILE LPAREN expression RPAREN compound_statement
+    (29) for_statement -> . FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement
+    (31) function_definition -> . type IDENTIFIER LPAREN parameters RPAREN compound_statement
+    (35) function_call -> . IDENTIFIER LPAREN arguments RPAREN SEMICOLON
+    (39) return_statement -> . RETURN expression SEMICOLON
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+    (19) type -> . INT
+    (20) type -> . FLOAT
+    (21) type -> . STRING
+    (22) type -> . VOID
+
+    RBRACE          shift and go to state 104
+    INCLUDE         shift and go to state 16
+    IDENTIFIER      shift and go to state 18
+    COUT            shift and go to state 19
+    CIN             shift and go to state 20
+    IF              shift and go to state 21
+    WHILE           shift and go to state 23
+    FOR             shift and go to state 24
+    RETURN          shift and go to state 25
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+    INT             shift and go to state 28
+    FLOAT           shift and go to state 29
+    STRING          shift and go to state 30
+    VOID            shift and go to state 31
+
+    statement                      shift and go to state 32
+    include_statement              shift and go to state 4
+    declaration                    shift and go to state 5
+    assignment                     shift and go to state 6
+    cout_statement                 shift and go to state 7
+    cin_statement                  shift and go to state 8
+    if_statement                   shift and go to state 9
+    while_statement                shift and go to state 10
+    for_statement                  shift and go to state 11
+    function_definition            shift and go to state 12
+    function_call                  shift and go to state 13
+    return_statement               shift and go to state 14
+    expression                     shift and go to state 15
+    type                           shift and go to state 17
+
+state 101
+
+    (29) for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON . expression RPAREN compound_statement
+    (40) expression -> . IDENTIFIER
+    (41) expression -> . NUMBER
+    (42) expression -> . STRING_LITERAL
+    (43) expression -> . expression PLUS expression
+    (44) expression -> . expression MINUS expression
+    (45) expression -> . expression TIMES expression
+    (46) expression -> . expression DIVIDE expression
+    (47) expression -> . expression LESS expression
+    (48) expression -> . expression GREATER expression
+    (49) expression -> . expression LESSEQUAL expression
+    (50) expression -> . expression GREATEREQUAL expression
+    (51) expression -> . LPAREN expression RPAREN
+
+    IDENTIFIER      shift and go to state 50
+    NUMBER          shift and go to state 26
+    STRING_LITERAL  shift and go to state 27
+    LPAREN          shift and go to state 22
+
+    expression                     shift and go to state 105
+
+state 102
+
+    (33) parameters -> type IDENTIFIER COMMA parameters .
+
+    RPAREN          reduce using rule 33 (parameters -> type IDENTIFIER COMMA parameters .)
+
+
+state 103
+
+    (27) if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .
+
+    INCLUDE         reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    IDENTIFIER      reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    COUT            reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    CIN             reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    IF              reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    WHILE           reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    FOR             reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    RETURN          reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    NUMBER          reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    STRING_LITERAL  reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    LPAREN          reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    INT             reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    FLOAT           reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    STRING          reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    VOID            reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    $end            reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+    RBRACE          reduce using rule 27 (if_statement -> IF LPAREN expression RPAREN compound_statement ELSE compound_statement .)
+
+
+state 104
+
+    (30) compound_statement -> LBRACE statements RBRACE .
+
+    ELSE            reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    INCLUDE         reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    IDENTIFIER      reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    COUT            reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    CIN             reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    IF              reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    WHILE           reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    FOR             reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    RETURN          reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    NUMBER          reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    STRING_LITERAL  reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    LPAREN          reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    INT             reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    FLOAT           reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    STRING          reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    VOID            reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    $end            reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 30 (compound_statement -> LBRACE statements RBRACE .)
+
+
+state 105
+
+    (29) for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression . RPAREN compound_statement
+    (43) expression -> expression . PLUS expression
+    (44) expression -> expression . MINUS expression
+    (45) expression -> expression . TIMES expression
+    (46) expression -> expression . DIVIDE expression
+    (47) expression -> expression . LESS expression
+    (48) expression -> expression . GREATER expression
+    (49) expression -> expression . LESSEQUAL expression
+    (50) expression -> expression . GREATEREQUAL expression
+
+    RPAREN          shift and go to state 106
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    TIMES           shift and go to state 36
+    DIVIDE          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+
+
+state 106
+
+    (29) for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN . compound_statement
+    (30) compound_statement -> . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 94
+
+    compound_statement             shift and go to state 107
+
+state 107
+
+    (29) for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .
+
+    INCLUDE         reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    IDENTIFIER      reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    COUT            reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    CIN             reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    IF              reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    WHILE           reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    FOR             reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    RETURN          reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    NUMBER          reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    STRING_LITERAL  reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    LPAREN          reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    INT             reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    FLOAT           reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    STRING          reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    VOID            reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    $end            reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+    RBRACE          reduce using rule 29 (for_statement -> FOR LPAREN expression SEMICOLON expression SEMICOLON expression RPAREN compound_statement .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 54 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 54 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 54 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 54 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 54 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 54 resolved as shift
+WARNING: shift/reduce conflict for LESSEQUAL in state 54 resolved as shift
+WARNING: shift/reduce conflict for GREATEREQUAL in state 54 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 55 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 55 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 55 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 55 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 55 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 55 resolved as shift
+WARNING: shift/reduce conflict for LESSEQUAL in state 55 resolved as shift
+WARNING: shift/reduce conflict for GREATEREQUAL in state 55 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 56 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 56 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 56 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 56 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 56 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 56 resolved as shift
+WARNING: shift/reduce conflict for LESSEQUAL in state 56 resolved as shift
+WARNING: shift/reduce conflict for GREATEREQUAL in state 56 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 57 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 57 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 57 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 57 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 57 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 57 resolved as shift
+WARNING: shift/reduce conflict for LESSEQUAL in state 57 resolved as shift
+WARNING: shift/reduce conflict for GREATEREQUAL in state 57 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 58 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 58 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 58 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 58 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 58 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 58 resolved as shift
+WARNING: shift/reduce conflict for LESSEQUAL in state 58 resolved as shift
+WARNING: shift/reduce conflict for GREATEREQUAL in state 58 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 59 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 59 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 59 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 59 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 59 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 59 resolved as shift
+WARNING: shift/reduce conflict for LESSEQUAL in state 59 resolved as shift
+WARNING: shift/reduce conflict for GREATEREQUAL in state 59 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 60 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 60 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 60 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 60 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 60 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 60 resolved as shift
+WARNING: shift/reduce conflict for LESSEQUAL in state 60 resolved as shift
+WARNING: shift/reduce conflict for GREATEREQUAL in state 60 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 61 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 61 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 61 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 61 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 61 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 61 resolved as shift
+WARNING: shift/reduce conflict for LESSEQUAL in state 61 resolved as shift
+WARNING: shift/reduce conflict for GREATEREQUAL in state 61 resolved as shift
