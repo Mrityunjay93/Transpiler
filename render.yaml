@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: cpp-to-python-transpiler
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    plan: free
